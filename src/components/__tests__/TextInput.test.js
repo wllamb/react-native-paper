@@ -21,6 +21,9 @@ const style = StyleSheet.create({
   height: {
     height: 100,
   },
+  lineHeight: {
+    lineHeight: 22,
+  },
 });
 
 const affixTextValue = '/100';
@@ -209,6 +212,24 @@ it('renders label with correct color when inactive', () => {
     color: getTheme().colors.onSurfaceVariant,
   });
 });
+
+['outlined', 'flat'].forEach((mode) =>
+  it('renders input with correct line height', () => {
+    const input = render(
+      <TextInput
+        mode={mode}
+        multiline
+        label="Flat input"
+        testID={'text-input'}
+        style={style.lineHeight}
+      />
+    );
+
+    expect(input.getByTestId(`text-input-${mode}`)).toHaveStyle({
+      lineHeight: 22,
+    });
+  })
+);
 
 describe('maxFontSizeMultiplier', () => {
   const createInput = (type, maxFontSizeMultiplier) => {
