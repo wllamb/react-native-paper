@@ -12,13 +12,14 @@ import { useTheme } from '../../core/theming';
 
 export type Props = React.ComponentPropsWithoutRef<typeof IconButton> & {
   /**
-   *  Custom color for action icon.
-   */
-  color?: string;
-  /**
    * Name of the icon to show.
    */
   icon: IconSource;
+  /**
+   * @renamed Renamed from 'color' to 'iconColor' in v5.x
+   * Color of the icon.
+   */
+  iconColor?: string;
   /**
    * Optional icon size.
    */
